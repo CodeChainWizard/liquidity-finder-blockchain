@@ -48,6 +48,66 @@ const Home = ({ setActiveComponent, GET_POOL_DETAILS }) => {
             <IconOne />
             <IconTwo />
           </div>
+
+          <div className="container">
+            <div className="py-14 text-center relative">
+              <div className="flex justify-center">
+                <div className="max-w-2xl">
+                  <h2 className="md:text-6xl/tight text-5xl text-default-100 font-semibold mb-6">
+                    Make work, Swap, earn, and build Pool & Liquidity finder
+                  </h2>
+                  <p className="text-base text-default-200 font-medium px-5">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
+                    eveniet, quas repellendus, esse accusamus omnis a maiores
+                    vel cumque porro, aliquam harum? Iste deleniti animi
+                    laudantium necessitatibus, numquam molestias nisi dicta
+                    sequi perspiciatis atque. Voluptatem expedita deserunt sed
+                    explicabo vel voluptate natus minima? Modi mollitia, dicta
+                    deleniti qui sapiente hic.
+                  </p>
+
+                  <div className="backdrop-blur-2xl bg-white/10 rounded-md max-w-xl mx-auto">
+                    <div className="w-full flex items-center justify-between mt-7">
+                      <input
+                        type="text"
+                        className="w-full p-4 border-0 focus:outline-none focus:ring-0 text-sm text-white placeholder:text-white bg-transparent"
+                        placeholder="Enter Pool Address"
+                        autoComplete="off"
+                        onChange={(e) => setPoolAddress(e.target.value)}
+                      />
+                      <button className="py-2 px-6 me-2 border-0 font-semibold text-sm rounded-md backdrop-blur-2xl bg-primary hover:bg-primary-hover hover:text-white transition-all duration-500">
+                        <div onClick={() => CALL_POOL_DETAILS(poolAddress)}>
+                          <span className="flex items-center justify-center gap-1 text-white">
+                            Submit
+                          </span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center justify-center gap-6 mt-10">
+                    <a
+                      onClick={() => setActiveComponent("Liqudity History")}
+                      className="inline-flex items-center justify-center gap-2 bg-primaty text-white py-2 px-6 rounded-full hover:bg-primary-hover transition-all duration-300 cursor-pointer"
+                    >
+                      {poolAddress ? "Check Liqudity" : "Get Pool Liqudity"}
+                      <FaArrowRightLong />
+                    </a>
+                    <a
+                      onClick={() => setActiveComponent("Liqudity")}
+                      className="inline-flex items-center justify-center border border-white/10 gap-2 bg-primaty text-white py-2 px-6 rounded-full hover:bg-primary-hover transition-all duration-300 cursor-pointer"
+                    >
+                      Liqudity
+                      <FaArrowRightLong />
+                    </a>
+                  </div>
+                  <p className="text-sm font-medium text-default-400 mt-5">
+                    Get all details about pools and liqudity
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

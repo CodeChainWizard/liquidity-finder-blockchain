@@ -1,6 +1,7 @@
 import React from "react";
 import { SiBlockchaindotcom } from "react-icons/si";
 import { CgMenuRight } from "react-icons/cg";
+import Link from "next/link";
 
 const Header = ({ setActiveComponent, activeNetwork }) => {
   const navMenu = [
@@ -45,9 +46,7 @@ const Header = ({ setActiveComponent, activeNetwork }) => {
                   onClick={() => setActiveComponent(list)}
                   className="nav-item"
                 >
-                  <a href="" className="nav-link">
-                    {list}
-                  </a>
+                  <a className="nav-link">{list}</a>
                 </li>
               ))}
             </ul>
