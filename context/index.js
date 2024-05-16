@@ -122,8 +122,8 @@ export const CONTEXT_PROVIDER = ({ children }) => {
     } catch (error) {
       const errorMsg = parseErrorMsg(error);
       setLoad(false);
-      notifyError(errorMsg);
-      console.log(errorMsg);
+      notifyError("Faild to Fetch Data");
+      // console.log(errorMsg);
     }
   };
 

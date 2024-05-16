@@ -8,7 +8,7 @@ import { IconOne, IconTwo } from "./index";
 
 const Home = ({ setActiveComponent, GET_POOL_DETAILS }) => {
   // STATE VARIABLES
-  const [selectedNetwork, setSetselectedNetwork] = useState("");
+  const [selectedNetwork, setSetselectedNetwork] = useState({});
   const [poolAddress, setPoolAddress] = useState("");
   const [poolDetails, setPoolDetails] = useState();
 
@@ -23,10 +23,10 @@ const Home = ({ setActiveComponent, GET_POOL_DETAILS }) => {
   }, []);
 
   // CALLING FUNCTION
-  const CALL_POOL_ADDRESS = async (inputAddress) => {
+  const CALL_POOL_DETAIL = async (inputAddress) => {
     const { rpcUrl } = selectedNetwork;
 
-    const zeroAddress = "0";
+    const zeroAddress = "0x";
 
     if (!inputAddress || !rpcUrl || inputAddress == zeroAddress) {
       return notifyError("Provide Data or Invaild Address!!");
@@ -34,6 +34,7 @@ const Home = ({ setActiveComponent, GET_POOL_DETAILS }) => {
 
     const poolDetails = await GET_POOL_DETAILS(inputAddress, selectedNetwork);
     setPoolDetails(poolDetails);
+    console.log(poolDetails);
   };
 
   return (
@@ -73,10 +74,13 @@ const Home = ({ setActiveComponent, GET_POOL_DETAILS }) => {
                         className="w-full p-4 border-0 focus:outline-none focus:ring-0 text-sm text-white placeholder:text-white bg-transparent"
                         placeholder="Enter Pool Address"
                         autoComplete="off"
-                        onChange={(e) => setPoolAddress(e.target.value)}
+                        value={poolAddress}
+                        onChange={(e) => {
+                          setPoolAddress(e.target.value);
+                        }}
                       />
                       <button className="py-2 px-6 me-2 border-0 font-semibold text-sm rounded-md backdrop-blur-2xl bg-primary hover:bg-primary-hover hover:text-white transition-all duration-500">
-                        <div onClick={() => CALL_POOL_DETAILS(poolAddress)}>
+                        <div onClick={() => CALL_POOL_DETAIL(poolAddress)}>
                           <span className="flex items-center justify-center gap-1 text-white">
                             Submit
                           </span>
